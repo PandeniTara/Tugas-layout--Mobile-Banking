@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'menu.dart'; // Import file MainMenu yang sudah dipisah
+import 'home_page.dart'; // Import file MainMenu yang sudah dipisah
 
 void main() {
   runApp(const MyApp());
@@ -42,48 +42,62 @@ class _LoginPageState extends State<LoginPage> {
   }
 
   @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: Colors.white,
-      body: Column(
-        children: [
-          // Header dengan logo
-          Container(
-            width: double.infinity,
-            color: const Color.fromARGB(255, 61, 131, 237),
-            padding: const EdgeInsets.only(top: 50, bottom: 20),
-            child: Column(
-              children: [
-                 const SizedBox(height: 20), // Tambahkan ini agar logo turun
-                Image.asset('assets/images/Logo_undiksha.png', height: 120), // Pastikan logo ada
-                const SizedBox(height: 10),
-                const Text(
-                  "Koperasi Undiksha",
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 22,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-              ],
-            ),
+Widget build(BuildContext context) {
+  return Scaffold(
+    appBar: AppBar(
+      backgroundColor: Colors.blue.shade800,
+      title: const Text('Koperasi Undiksha', style: TextStyle(color: Colors.white),),
+      centerTitle: true,
+    ),
+    backgroundColor: Colors.white,
+    body: Column(
+      children: [
+        // Logo di atas
+        Container(
+          width: double.infinity,
+          padding: const EdgeInsets.only(top: 50, bottom: 20),
+          child: Image.asset(
+            'assets/images/Logo_undiksha.png', // Ganti dengan path gambar yang sesuai
+            height: 150, // Ukuran lebih kecil agar layout lebih seimbang
           ),
+        ),
 
-          // Tambahkan ruang kosong untuk menurunkan form login
-          const SizedBox(height: 200), // Ini yang ditambahkan
-
-          // Form Login
-          Expanded(
-            child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 20.0),
+        // Form Login (Pakai Expanded agar tidak terlalu panjang ke bawah)
+        Expanded(
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 20.0),
+            child: Container(
+              padding: const EdgeInsets.all(20),
+              decoration: BoxDecoration(
+                color: Colors.white,
+                borderRadius: BorderRadius.circular(15),
+                border: Border.all(
+                  color: Colors.black,
+                  width: 3,
+                ),
+                boxShadow: [
+                  BoxShadow(
+                    color: Colors.grey.withOpacity(0.5),
+                    spreadRadius: 3,
+                    blurRadius: 10,
+                    offset: const Offset(3, 5),
+                  ),
+                ],
+              ),
               child: Column(
-                mainAxisAlignment: MainAxisAlignment.start, // Menghindari form naik terlalu tinggi
+                mainAxisSize: MainAxisSize.min, // Sesuai isi supaya tidak terlalu panjang
                 children: [
                   TextField(
                     controller: usernameController,
                     decoration: InputDecoration(
                       labelText: 'Username',
-                      border: OutlineInputBorder(borderRadius: BorderRadius.circular(10)),
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(10),
+                        borderSide: BorderSide(
+                          color: Colors.blue.shade800,
+                          width: 2,
+                        ),
+                      ),
                     ),
                   ),
                   const SizedBox(height: 10),
@@ -92,14 +106,20 @@ class _LoginPageState extends State<LoginPage> {
                     obscureText: true,
                     decoration: InputDecoration(
                       labelText: 'Password',
-                      border: OutlineInputBorder(borderRadius: BorderRadius.circular(10)),
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(10),
+                        borderSide: BorderSide(
+                          color: Colors.blue.shade800,
+                          width: 2,
+                        ),
+                      ),
                     ),
                   ),
                   const SizedBox(height: 20),
                   ElevatedButton(
                     style: ElevatedButton.styleFrom(
                       minimumSize: const Size(double.infinity, 50),
-                      backgroundColor: const Color.fromARGB(255, 61, 131, 237),
+                      backgroundColor: const Color.fromARGB(255, 5, 62, 148),
                     ),
                     onPressed: _login,
                     child: const Text("Login", style: TextStyle(color: Colors.white)),
@@ -116,9 +136,15 @@ class _LoginPageState extends State<LoginPage> {
               ),
             ),
           ),
+        ),
 
-          // Copyright di bagian bawah dengan background abu-abu
-          Container(
+        // Spacer agar copyright selalu di bawah
+        const Spacer(),
+
+        // Copyright (Align supaya selalu di bagian bawah)
+        Align(
+          alignment: Alignment.bottomCenter,
+          child: Container(
             width: double.infinity,
             padding: const EdgeInsets.symmetric(vertical: 10),
             color: Colors.grey.shade300,
@@ -129,8 +155,10 @@ class _LoginPageState extends State<LoginPage> {
               ),
             ),
           ),
-        ],
-      ),
-    );
-  }
+        ),
+      ],
+    ),
+  );
+}
+
 }
