@@ -58,7 +58,7 @@ Widget build(BuildContext context) {
           padding: const EdgeInsets.only(top: 50, bottom: 20),
           child: Image.asset(
             'assets/images/Logo_undiksha.png', // Ganti dengan path gambar yang sesuai
-            height: 150, // Ukuran lebih kecil agar layout lebih seimbang
+            height: 210, // Ukuran lebih kecil agar layout lebih seimbang
           ),
         ),
 
@@ -72,7 +72,7 @@ Widget build(BuildContext context) {
                 color: Colors.white,
                 borderRadius: BorderRadius.circular(15),
                 border: Border.all(
-                  color: Colors.black,
+                  color: const Color.fromARGB(255, 63, 135, 243),
                   width: 3,
                 ),
                 boxShadow: [

@@ -9,15 +9,20 @@ class MainMenu extends StatelessWidget {
     return Scaffold(
       // AppBar (Bagian atas aplikasi)
       appBar: AppBar(
-        backgroundColor: Colors.blue.shade800,
-        title: const Text('Koperasi Undiksha', style: TextStyle(color: Colors.white),),
-        actions: [
-          IconButton(
-            onPressed: () {}, // Fungsi logout (belum diimplementasikan)
-            icon: const Icon(Icons.exit_to_app), // Ikon logout
-          )
-        ],
-      ),
+  backgroundColor: Colors.blue.shade800,
+  iconTheme: const IconThemeData(color: Colors.white), // Mengubah ikon back menjadi putih
+  title: const Text(
+    'Koperasi Undiksha',
+    style: TextStyle(color: Colors.white),
+  ),
+  actions: [
+    IconButton(
+      onPressed: () {}, // Fungsi logout (belum diimplementasikan)
+      icon: const Icon(Icons.exit_to_app, color: Colors.white), // Ikon logout juga putih
+    )
+  ],
+),
+
       body: Padding(
         padding: const EdgeInsets.all(15.0),
         child: Column(
@@ -152,12 +157,12 @@ class MainMenu extends StatelessWidget {
                       ),
                     ],
                   ),
-                  const Icon(Icons.phone, size: 40, color: Colors.blue),
+                  const Icon(Icons.phone, size: 60, color: Colors.blue),
                 ],
               ),
             ),
              const SizedBox(height: 130), // Memberi jarak lebih jauh ke bawah
-
+    
             // Kotak dengan Setting, QR Code, dan Profile
             Container(
               padding: const EdgeInsets.all(15),
@@ -169,18 +174,48 @@ class MainMenu extends StatelessWidget {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  _menuItem("Setting", Icons.settings),
-                  const SizedBox(width: 20),
-                  Container(
-                    padding: const EdgeInsets.all(15),
-                    decoration: BoxDecoration(
-                      shape: BoxShape.circle,
-                      color: Colors.blue.shade800,
-                    ),
-                    child: const Icon(Icons.qr_code, size: 50, color: Colors.white),
+                   
+                  // Ikon Setting dengan teks di bawahnya
+              Column(
+                children: [
+                  Icon(Icons.settings, color: Colors.blue.shade800, size: 50),
+                  const SizedBox(height: 5), // Jarak antara ikon dan teks
+                  const Text(
+                    "Setting",
+                    style: TextStyle(fontSize: 14, fontWeight: FontWeight.bold),
                   ),
-                  const SizedBox(width: 20),
-                  _menuItem("Profile", Icons.person),
+                ],
+              ),
+              const SizedBox(width: 40), // Jarak antara Setting dan QR Code
+                 //Ikon QR Code dalam lingkaran
+              Container(
+                padding: const EdgeInsets.all(15),
+                decoration: BoxDecoration(
+                  shape: BoxShape.circle,
+                  color: Colors.blue.shade800,
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.black26,
+                      blurRadius: 5,
+                      offset: const Offset(2, 2),
+                    ),
+                  ],
+                ),
+                child: const Icon(Icons.qr_code, size: 50, color: Colors.white),
+              ),
+
+              const SizedBox(width: 40), // Jarak antara QR Code dan Profile
+                  Column(
+                children: [
+                  Icon(Icons.person, color: Colors.blue.shade800, size: 50),
+                  const SizedBox(height: 5), // Jarak antara ikon dan teks
+                  const Text(
+                    "Profile",
+                    style: TextStyle(fontSize: 14, fontWeight: FontWeight.bold),
+                  ),
+                ],
+              ),
+                   
                 ],
               ),
             ),
