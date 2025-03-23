@@ -10,7 +10,7 @@ class MainMenu extends StatelessWidget {
       // AppBar (Bagian atas aplikasi)
       appBar: AppBar(
         backgroundColor: Colors.blue.shade800,
-        title: const Text('Koperasi Undiksha'),
+        title: const Text('Koperasi Undiksha', style: TextStyle(color: Colors.white),),
         actions: [
           IconButton(
             onPressed: () {}, // Fungsi logout (belum diimplementasikan)
@@ -34,13 +34,17 @@ class MainMenu extends StatelessWidget {
                 children: [
                   // Foto Profil diperbesar (80x80) dan berbentuk kotak
                   Container(
-                    width: 80,
-                    height: 80,
-                    decoration: BoxDecoration(
-                      color: Colors.purple.shade100, // Warna latar contoh
-                      borderRadius: BorderRadius.circular(5), // Membuat kotak (bukan lingkaran)
-                    ),
-                  ),
+  width: 80,
+  height: 80,
+  decoration: BoxDecoration(
+    borderRadius: BorderRadius.circular(5), // Membuat kotak dengan sedikit lengkungan
+    image: DecorationImage(
+      image: AssetImage('assets/images/Tara.jpeg'), // Ganti dengan path gambar yang benar
+      fit: BoxFit.cover, // Menyesuaikan ukuran gambar agar mengisi kotak
+    ),
+  ),
+),
+
                   const SizedBox(width: 20), // Jarak lebih luas antara foto dan informasi
 
                   // Informasi Pengguna (Nama dan Saldo)
@@ -114,7 +118,7 @@ class MainMenu extends StatelessWidget {
                   _menuItem("Deposito", Icons.account_balance),
                   _menuItem("Pembayaran", Icons.payment),
                   _menuItem("Pinjaman", Icons.attach_money),
-                  _menuItem("Mutasi", Icons.receipt_long),
+                  _menuItem("Mutasi", Icons.article),
                 ],
               ),
             ),
