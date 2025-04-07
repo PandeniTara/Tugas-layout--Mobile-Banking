@@ -1,12 +1,5 @@
 import 'package:flutter/material.dart';
 import 'home_page.dart'; // Import file MainMenu yang sudah dipisah
-import 'saldo_page.dart';
-import 'transfer_page.dart';
-import 'deposito_page.dart';
-import 'pembayaran_page.dart';
-import 'pinjaman_page.dart';
-import 'mutasi_page.dart';
-
 
 void main() {
   runApp(const MyApp());
