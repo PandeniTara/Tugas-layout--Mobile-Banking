@@ -1,4 +1,10 @@
 import 'package:flutter/material.dart';
+import 'saldo_page.dart';
+import 'transfer_page.dart';
+import 'deposito_page.dart';
+import 'pembayaran_page.dart';
+import 'pinjaman_page.dart';
+import 'mutasi_page.dart';
 
 class MainMenu extends StatelessWidget {
   final String username;
@@ -118,12 +124,12 @@ class MainMenu extends StatelessWidget {
                 mainAxisSpacing: 10,
                 crossAxisSpacing: 10,
                 children: [
-                  _menuItem("Cek Saldo", Icons.account_balance_wallet),
-                  _menuItem("Transfer", Icons.swap_horiz),
-                  _menuItem("Deposito", Icons.account_balance),
-                  _menuItem("Pembayaran", Icons.payment),
-                  _menuItem("Pinjaman", Icons.attach_money),
-                  _menuItem("Mutasi", Icons.article),
+                _buildMenuItem(context, Icons.account_balance_wallet, "Cek Saldo", const SaldoPage()),
+                _buildMenuItem(context, Icons.send, "Transfer", const TransferPage()),
+                _buildMenuItem(context, Icons.savings, "Deposito", const DepositoPage()),
+                _buildMenuItem(context, Icons.payment, "Pembayaran", const PembayaranPage()),
+                _buildMenuItem(context, Icons.account_balance, "Pinjaman", const PinjamanPage()),
+                _buildMenuItem(context, Icons.receipt, "Mutasi", const MutasiPage()),
                 ],
               ),
             ),
@@ -249,6 +255,35 @@ class MainMenu extends StatelessWidget {
     );
   }
 }
+ 
+ // Tambahkan fungsi buildMenuItem di bawah sini
+  Widget _buildMenuItem(BuildContext context, IconData icon, String title, Widget page) {
+    return GestureDetector(
+      onTap: () {
+        Navigator.push(context, MaterialPageRoute(builder: (context) => page));
+      },
+      child: Container(
+        decoration: BoxDecoration(
+          border: Border.all(color: Colors.blue.shade800, width: 2),
+          borderRadius: BorderRadius.circular(10),
+          color: Colors.white,
+        ),
+        padding: const EdgeInsets.all(10),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Icon(icon, size: 40, color: Colors.blue.shade800),
+            const SizedBox(height: 5),
+            Text(
+              title,
+              textAlign: TextAlign.center,
+              style: const TextStyle(fontSize: 14, fontWeight: FontWeight.bold),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
 
 void main() {
   runApp(const MaterialApp(home: MainMenu(username: "user123")));
