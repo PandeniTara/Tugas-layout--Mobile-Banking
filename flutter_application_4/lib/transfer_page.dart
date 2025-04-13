@@ -43,8 +43,8 @@ class TransferPage extends StatelessWidget {
                   shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
                   child: ListTile(
                     leading: CircleAvatar(
-                      backgroundColor: Colors.orange.shade100,
-                      child: const Icon(Icons.star, color: Colors.orange),
+                      backgroundColor: const Color.fromARGB(255, 241, 184, 99),
+                      child: const Icon(Icons.star, color: Color.fromARGB(255, 230, 244, 139)),
                     ),
                     title: const Text("Tambah", style: TextStyle(fontWeight: FontWeight.bold)),
                     subtitle: const Text("Tambah penerima favorit, biar lebih mudah cari mereka."),
@@ -80,7 +80,7 @@ class TransferPage extends StatelessWidget {
                     child: Container(
                       padding: const EdgeInsets.symmetric(vertical: 10),
                       decoration: BoxDecoration(
-                        color: Colors.limeAccent.shade100,
+                        color:  Colors.blue,
                         borderRadius: BorderRadius.circular(50),
                       ),
                       alignment: Alignment.center,
@@ -106,7 +106,7 @@ class TransferPage extends StatelessWidget {
               children: const [
                 Text("1/200 penerima", style: TextStyle(fontWeight: FontWeight.bold)),
                 Spacer(),
-                Text("Ubah", style: TextStyle(color: Colors.orange)),
+                Text("Ubah", style: TextStyle(color: Color.fromARGB(255, 191, 190, 189))),
               ],
             ),
           ),
@@ -115,7 +115,7 @@ class TransferPage extends StatelessWidget {
             child: ListView(
               children: const [
                 ListTile(
-                  leading: CircleAvatar(child: Text("TA")),
+                  leading: CircleAvatar(child: Text("NK")),
                   title: Text("Ni Kadek Pandeni Tara Apsari", style: TextStyle(fontWeight: FontWeight.bold)),
                   subtitle: Text("JAGO • 105206070333"),
                 ),
@@ -141,7 +141,7 @@ class _TransferMenu extends StatelessWidget {
         CircleAvatar(
           radius: 30,
           backgroundColor: Colors.grey.shade100,
-          child: Icon(icon, color: Colors.teal, size: 28),
+          child: Icon(icon, color: Colors.blue, size: 28),
         ),
         const SizedBox(height: 6),
         Text(label, style: const TextStyle(fontSize: 12)),
