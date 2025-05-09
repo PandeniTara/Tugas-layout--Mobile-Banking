@@ -1,10 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'providers/nasabah_provider.dart';
+import 'providers/mutasi_provider.dart';
 
 class SaldoPage extends StatelessWidget {
   const SaldoPage({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final nasabah = Provider.of<NasabahProvider>(context);
+
     return Scaffold(
       appBar: AppBar(
         title: const Text('Cek Saldo', style: TextStyle(color: Colors.white)),
@@ -23,17 +28,17 @@ class SaldoPage extends StatelessWidget {
               child: Padding(
                 padding: const EdgeInsets.symmetric(vertical: 30, horizontal: 20),
                 child: Column(
-                  children: const [
-                    Icon(Icons.account_balance_wallet, size: 60, color: Colors.white),
-                    SizedBox(height: 10),
-                    Text(
+                  children: [
+                    const Icon(Icons.account_balance_wallet, size: 60, color: Colors.white),
+                    const SizedBox(height: 10),
+                    const Text(
                       'Saldo Anda',
                       style: TextStyle(fontSize: 20, color: Colors.white),
                     ),
-                    SizedBox(height: 10),
+                    const SizedBox(height: 10),
                     Text(
-                      'Rp. 1.200.000',
-                      style: TextStyle(fontSize: 28, fontWeight: FontWeight.bold, color: Colors.white),
+                      'Rp. ${nasabah.saldo.toStringAsFixed(0)}',
+                      style: const TextStyle(fontSize: 28, fontWeight: FontWeight.bold, color: Colors.white),
                     ),
                   ],
                 ),
@@ -59,11 +64,8 @@ class SaldoPage extends StatelessWidget {
               ),
             ),
 
-            // Tambahkan jarak di sini
             const SizedBox(height: 50),
 
-
-            // Riwayat Transaksi (Mutasi)
             Align(
               alignment: Alignment.centerLeft,
               child: Text(

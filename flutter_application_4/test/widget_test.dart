@@ -1,29 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:flutter_application_4/main.dart'; // Sesuaikan dengan path proyek Anda
+import 'package:flutter_application_4/main.dart'; // Ganti dengan path projekmu
 
 void main() {
-  testWidgets('Counter bertambah saat tombol + ditekan', (WidgetTester tester) async {
-    // Bangun aplikasi
-    await tester.pumpWidget(const MyApp());
+  testWidgets('Login dengan username = password berhasil', (WidgetTester tester) async {
+    // await tester.pumpWidget(const MyApp());
 
-    // Pastikan teks "You have pushed the button this many times" muncul
-    expect(find.text('You have pushed the button this many times:'), findsOneWidget);
+    // Masukkan username dan password
+    await tester.enterText(find.byType(TextField).at(0), 'undiksha');
+    await tester.enterText(find.byType(TextField).at(1), 'undiksha');
 
-    // Pastikan counter dimulai dari 0
-    expect(find.text('0'), findsOneWidget);
-    expect(find.text('1'), findsNothing);
+    // Tekan tombol login
+    await tester.tap(find.widgetWithText(ElevatedButton, 'Login'));
+    await tester.pumpAndSettle();
 
-    // Temukan FloatingActionButton dengan ikon '+'
-    final Finder addButton = find.byIcon(Icons.add);
-    expect(addButton, findsOneWidget);
-
-    // Ketuk tombol '+'
-    await tester.tap(addButton);
-    await tester.pump();
-
-    // Pastikan counter bertambah menjadi 1
-    expect(find.text('0'), findsNothing);
-    expect(find.text('1'), findsOneWidget);
+    // Periksa apakah halaman berikutnya muncul (bisa cek berdasarkan judul halaman atau komponen unik lainnya)
+    expect(find.textContaining('Menu'), findsOneWidget); // Sesuaikan dengan konten halaman MainMenu
   });
 }
