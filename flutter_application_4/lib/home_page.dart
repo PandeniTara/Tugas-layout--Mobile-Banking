@@ -142,7 +142,7 @@ class _MainMenuState extends State<MainMenu> {
                         ],
                       ),
                     ),
-                    const SizedBox(height: 40),
+                    const SizedBox(height: 20),
                     Container(
                       width: double.infinity,
                       padding: const EdgeInsets.symmetric(vertical: 15, horizontal: 10),
@@ -173,7 +173,7 @@ class _MainMenuState extends State<MainMenu> {
                         ],
                       ),
                     ),
-                    const SizedBox(height: 30),
+                    const SizedBox(height: 85),
                     Container(
                       padding: const EdgeInsets.all(15),
                       decoration: BoxDecoration(

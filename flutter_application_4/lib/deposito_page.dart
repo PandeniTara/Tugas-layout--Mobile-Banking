@@ -120,6 +120,13 @@ class _DepositoPageState extends State<DepositoPage> {
           padding: const EdgeInsets.all(16),
           child: Column(
             children: [
+              SizedBox(height: 40),
+              Icon(
+                Icons.savings,
+                size: 80,
+                color: Color(0xFF243C94),
+              ),
+              SizedBox(height: 20),
               Text(
                 "Saldo Saat Ini: ${NumberFormat.currency(locale: 'id_ID', symbol: 'Rp ', decimalDigits: 2).format(saldo)}",
                 style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
