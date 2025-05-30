@@ -10,6 +10,7 @@ import 'mutasi_page.dart';
 import 'profile_page.dart';
 import 'providers/nasabah_provider.dart';
 import 'setting_page.dart';
+import 'qr_code_page.dart';
 
 class MainMenu extends StatefulWidget {
   final String username;
@@ -203,20 +204,28 @@ class _MainMenuState extends State<MainMenu> {
                             ],
                           ),
                           const SizedBox(width: 40),
-                          Container(
-                            padding: const EdgeInsets.all(15),
-                            decoration: BoxDecoration(
-                              shape: BoxShape.circle,
-                              color: Colors.blue.shade800,
-                              boxShadow: [
-                                BoxShadow(
-                                  color: Colors.black26,
-                                  blurRadius: 5,
-                                  offset: const Offset(2, 2),
-                                ),
-                              ],
+                          GestureDetector(
+                            onTap: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(builder: (context) => const QRCodePage()),
+                              );
+                            },
+                            child: Container(
+                              padding: const EdgeInsets.all(15),
+                              decoration: BoxDecoration(
+                                shape: BoxShape.circle,
+                                color: Colors.blue.shade800,
+                                boxShadow: [
+                                  BoxShadow(
+                                    color: Colors.black26,
+                                    blurRadius: 5,
+                                    offset: const Offset(2, 2),
+                                  ),
+                                ],
+                              ),
+                              child: const Icon(Icons.qr_code, size: 50, color: Colors.white),
                             ),
-                            child: const Icon(Icons.qr_code, size: 50, color: Colors.white),
                           ),
                           const SizedBox(width: 50),
                           GestureDetector(

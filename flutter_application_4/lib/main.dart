@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:flutter/services.dart';
 import 'home_page.dart'; // Halaman MainMenu
 import 'transfer_page.dart'; // Halaman Transfe
 import 'providers/user_provider.dart';
@@ -15,6 +16,10 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    SystemChrome.setPreferredOrientations([
+      DeviceOrientation.portraitUp,
+      DeviceOrientation.portraitDown,
+    ]);
     return MultiProvider(
       providers: [
         ChangeNotifierProvider(create: (_) => UserProvider()),
@@ -177,7 +182,7 @@ class _LoginPageState extends State<LoginPage> {
             color: Colors.grey.shade300,
             child: const Center(
               child: Text(
-                "copyright @2025 by Undiksha",
+                "Hak Cipta ©2025 oleh Undiksha",
                 style: TextStyle(fontWeight: FontWeight.bold),
               ),
             ),

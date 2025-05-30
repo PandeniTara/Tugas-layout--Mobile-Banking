@@ -12,7 +12,7 @@ class SettingPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Setting"),
+        title: const Text("Pengaturan"),
         backgroundColor: const Color(0xFF243C94),
         foregroundColor: Colors.white,
         elevation: 0,

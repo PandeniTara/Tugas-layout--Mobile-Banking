@@ -28,20 +28,6 @@ class MutasiPage extends StatelessWidget {
                 ),
                 const SizedBox(height: 20),
                 ...mutasiProvider.mutasiList.map((mutasi) => _buildMutasiCard(mutasi)).toList(),
-                Align(
-                  alignment: Alignment.bottomCenter,
-                  child: Container(
-                    width: double.infinity,
-                    color: Colors.grey.shade300,
-                    padding: const EdgeInsets.symmetric(vertical: 10),
-                    child: const Center(
-                      child: Text(
-                        "copyright @2025 by Undiksha",
-                        style: TextStyle(fontWeight: FontWeight.bold),
-                      ),
-                    ),
-                  ),
-                ),
               ],
             ),
           ),
